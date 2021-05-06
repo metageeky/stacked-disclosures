@@ -1,0 +1,151 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title></title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/stacked-disclosure.css">
+	<script src="js/stacked-disclosure.js"></script>
+</head>
+
+<body>
+	<div id="hiddenStuff" aria-hidden="true">
+		<svg id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<symbol id="icon-plus" viewBox="0 0 32 32">
+				<path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
+			</symbol>
+			<symbol id="icon-minus" viewBox="0 0 32 32">
+				<path d="M0 13v6c0 0.552 0.448 1 1 1h30c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1h-30c-0.552 0-1 0.448-1 1z"></path>
+			</symbol>
+			<symbol id="icon-close-all" viewBox="0 0 200 200">
+				 <g>
+					<g fill="none" stroke="currentColor">
+						<rect x="15" y="15" width="130" height="130" stroke-width="10"/>
+						<g stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="10">
+							<line x1="50" x2="190" y1="185" y2="185"/>
+							<line x1="30" x2="170" y1="165" y2="165"/>
+							<line x1="165" x2="165" y1="30" y2="170"/>
+							<line x1="185" x2="185" y1="50" y2="185"/>
+						</g>
+						<line x1="40" x2="120" y1="80" y2="80" stroke-width="20"/>
+					</g>
+				 </g>
+			</symbol>
+			<symbol id="icon-open-all" viewBox="0 0 200 200">
+				<g>
+					<g fill="none" stroke="currentColor">
+						<rect x="15" y="15" width="130" height="130" stroke-width="10"/>
+						<g stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="10">
+							<line x1="50" x2="190" y1="185" y2="185"/>
+							<line x1="30" x2="170" y1="165" y2="165"/>
+							<line x1="165" x2="165" y1="30" y2="170"/>
+							<line x1="185" x2="185" y1="50" y2="185"/>
+						</g>
+						<line x1="80" x2="80" y1="40" y2="120" stroke-width="20"/>
+						<line x1="40" x2="120" y1="80" y2="80" stroke-width="20"/>
+					</g>
+				</g>
+			</symbol>
+		</svg>
+	</div>
+
+
+	<header>
+		<banner>
+			<a class="skipnavlink offscreen" href="#main">
+				Skip to main content
+			</a>
+		</banner>
+	</header>
+	<main id="main" class="page-centered-content">
+		<h1 id="page-title">Stacked Disclosure Pattern</h1>
+
+		<div class="stacked-disclosure" id="stack1">
+			<div class="stack-top">
+				<div class="stack-name">
+					Stacked Example 1
+				</div>
+				<button class="open-all">
+					<span class="offscreen">Open All</span>
+					<svg><use xlink:href="#icon-open-all"></use></svg>
+				</button>
+				<button class="close-all">
+					<span class="offscreen">Close All</span>
+					<svg><use xlink:href="#icon-close-all"></use></svg>
+				</button>
+			</div>
+
+			<div class="panel-control" data-disclosure-expanded="false">
+				<button class="toggle" aria-expanded="false">
+					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+					<div>
+						What is the best food ever?
+					</div>
+				</button>
+			</div>
+			<div class="panel">
+				<p>
+					The breakfast taco, found in Tex-Mex cuisine, is a soft corn or flour tortilla filled with meat, eggs, or cheese, and can also contain  other ingredients.
+				</p>
+				<p>
+					Indian tacos, or Navajo tacos, are made using frybread instead of tortillas. They are commonly eaten at pow-wows, festivals, and other gatherings by and for indigenous people in the United States and Canada.
+				</p>
+				<p>
+					This kind of taco is not known to have been present before the arrival of Europeans in what is now the Southwestern United States. Navajo tradition indicates that frybread came into use in the 1860s when the government forced the tribe to relocate from their homeland in Arizona in a journey known as the Long Walk of the Navajo. It was made from ingredients given to them by the government to supplement their diet since the region could not support growing the agricultural commodities that had been previously used.
+				</p>
+			</div>
+
+			<div class="panel-control" data-disclosure-expanded="false">
+				<button class="toggle" aria-expanded="false">
+					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>					
+					<div>
+						Why are tuxedo cats, the black-and-white ones with so many whiskers, so awesome and cute and silly and fluffy and cute and awesome?
+					</div>
+				</button>
+			</div>
+			<div class="panel">
+				<p>
+					Where there is low-to-medium grade white spotting limited to the face, paws, throat and chest of an otherwise black cat, they are known in the United States as a tuxedo cat. High-grade bicolor results in Van-pattern cats. There are many patterns between, such as "cap-and-saddle", "mask-and-mantle" and "magpie" (more randomly splashed). Bicolors are found in many cat breeds, as well as being common in domestic longhair and domestic shorthair cat
+				</p>
+				<p>
+					Another type of black-and-white bicolor cat is referred to as a "cow cat" or "moo cat" and includes the magpie, cap-and-saddle and mask-and-mantle patterns. A cow cat does not have the solid black "jacket" of the tuxedo cat. Instead, it has large black patches over a mostly white body, often with a black mask over the head. "Black-mask cats" are so called because they look like they are wearing a black mask over their head.
+				</p>
+			</div>
+
+			<div class="panel-control" data-disclosure-expanded="false">
+				<button class="toggle" aria-expanded="false">
+					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+					<div>What is chocolate?</div>
+				</button>
+			</div>
+			<div class="panel">
+				<p>
+					Several types of chocolate can be distinguished. Pure, unsweetened chocolate, often called "baking chocolate", contains primarily cocoa solids and cocoa butter in varying proportions. Much of the chocolate consumed today is in the form of sweet chocolate, which combines chocolate with sugar.
+				</p>
+				<p>
+					Milk chocolate is sweet chocolate that also contains milk powder or condensed milk. In the UK and Ireland, milk chocolate must contain a minimum of 20% total dry cocoa solids; in the rest of the European Union, the minimum is 25%.
+				</p>
+				<p>
+					White chocolate, although similar in texture to that of milk and dark chocolate, does not contain any cocoa solids that impart a dark color. In 2002, the US Food and Drug Administration established a standard for white chocolate as the "common or usual name of products made from cacao fat (i.e., cocoa butter), milk solids, nutritive carbohydrate sweeteners, and other safe and suitable ingredients, but containing no nonfat cacao solids".
+				</p>
+				<p>
+					Unsweetened chocolate is pure chocolate liquor, also known as bitter or baking chocolate. It is unadulterated chocolate: the pure, ground, roasted chocolate beans impart a strong, deep chocolate flavor. It is typically used in baking or other products to which sugar and other ingredients are added. Raw chocolate, often referred to as raw cacao, is always dark and a minimum of 75% cacao.
+				</p>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="page-centered-content">
+			A footer of something. Perhaps a leg?
+		</div>
+	</footer>
+
+
+</body>
+</html>
