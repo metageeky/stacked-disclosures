@@ -14,11 +14,16 @@
 <body>
 	<div id="hiddenStuff" aria-hidden="true">
 		<svg id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<symbol id="icon-plus" viewBox="0 0 32 32">
-				<path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
+			<symbol id="icon-plus" viewBox="0 0 90 90">
+				<g>
+					<line stroke-width="20" stroke="currentColor" fill="none" y2="85" y1="5" x2="45" x1="45"/>
+					<line stroke-width="20" stroke="currentColor" fill="none" y2="45" y1="45" x2="85" x1="5"/>
+				</g>
 			</symbol>
-			<symbol id="icon-minus" viewBox="0 0 32 32">
-				<path d="M0 13v6c0 0.552 0.448 1 1 1h30c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1h-30c-0.552 0-1 0.448-1 1z"></path>
+			<symbol id="icon-minus" viewBox="0 0 90 90">
+				<g>
+					<line stroke-width="20" stroke="currentColor" fill="none" y2="45" y1="45" x2="85" x1="5"/>
+				</g>
 			</symbol>
 			<symbol id="icon-close-all" viewBox="0 0 200 200">
 				 <g>
@@ -68,12 +73,12 @@
 				<div class="stack-name">
 					Stacked Example 1
 				</div>
-				<button class="open-all">
-					<span class="offscreen">Open All</span>
+				<button class="open-all" title="open all">
+					<span>Open All</span>
 					<svg><use xlink:href="#icon-open-all"></use></svg>
 				</button>
 				<button class="close-all">
-					<span class="offscreen">Close All</span>
+					<span>Close All</span>
 					<svg><use xlink:href="#icon-close-all"></use></svg>
 				</button>
 			</div>

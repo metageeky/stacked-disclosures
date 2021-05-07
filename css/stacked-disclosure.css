@@ -166,7 +166,7 @@ main + footer a:visited{
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-content: stretch;
-	align-items: center;	
+	align-items: flex-end;	
 	border-bottom: 2px solid #666;
 }
 .stacked-disclosure .stack-top .stack-name {
@@ -178,7 +178,37 @@ main + footer a:visited{
 	line-height: 1;
 	border: 0;
 	background: transparent;
+	position: relative;
 }
+
+/* hide the button text visually */
+.stacked-disclosure .stack-top button span {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+/* hide the button text visually */
+.stacked-disclosure .stack-top button:hover span,
+.stacked-disclosure .stack-top button:focus span {
+	overflow: auto;
+	clip: auto;
+	width: auto;
+	height: auto;
+	display: block;
+	bottom: 100%;
+	left: -50%;
+	background-color: #ccc;
+	color: #000;
+	white-space: nowrap;
+	padding: 0.25em 0.5em;
+	font-size: 0.75rem;
+}
+
 .stacked-disclosure .stack-top button svg {
 	width: 2em;
 	height: 2em;
@@ -189,7 +219,6 @@ main + footer a:visited{
 	background: #d74100;
 	color: #fff;
 }
-
 
 
 
@@ -218,7 +247,7 @@ main + footer a:visited{
 }
 .stacked-disclosure button.toggle div {
 	flex: 1 1 auto;
-	margin-left: 0.5em;
+	margin-left: 0.375em;
 	pointer-events: none;
 }
 
