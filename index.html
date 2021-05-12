@@ -7,6 +7,7 @@
 	<title></title>
 
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/local.css">
 	<link rel="stylesheet" href="css/stacked-disclosure.css">
 	<script src="js/stacked-disclosure.js"></script>
 </head>
@@ -29,7 +30,7 @@
 				 <g>
 					<g fill="none" stroke="currentColor">
 						<rect x="15" y="15" width="130" height="130" stroke-width="10"/>
-						<g stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="10">
+						<g stroke-width="10">
 							<line x1="50" x2="190" y1="185" y2="185"/>
 							<line x1="30" x2="170" y1="165" y2="165"/>
 							<line x1="165" x2="165" y1="30" y2="170"/>
@@ -40,19 +41,11 @@
 				 </g>
 			</symbol>
 			<symbol id="icon-open-all" viewBox="0 0 200 200">
-				<g>
-					<g fill="none" stroke="currentColor">
-						<rect x="15" y="15" width="130" height="130" stroke-width="10"/>
-						<g stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="10">
-							<line x1="50" x2="190" y1="185" y2="185"/>
-							<line x1="30" x2="170" y1="165" y2="165"/>
-							<line x1="165" x2="165" y1="30" y2="170"/>
-							<line x1="185" x2="185" y1="50" y2="185"/>
-						</g>
-						<line x1="80" x2="80" y1="40" y2="120" stroke-width="20"/>
-						<line x1="40" x2="120" y1="80" y2="80" stroke-width="20"/>
-					</g>
-				</g>
+				 <g fill="none" stroke="currentColor">
+					<path d="M15 15h130v130H15z" stroke-width="10"/>
+					<path d="M50 185h140M30 165h140M165 30v140M185 50v135" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="10"/>
+					<path d="M80 40v80M40 80h80" stroke-width="20"/>
+				 </g>
 			</symbol>
 		</svg>
 	</div>
@@ -66,84 +59,75 @@
 		</banner>
 	</header>
 	<main id="main" class="page-centered-content">
-		<h1 id="page-title">Stacked Disclosure Pattern</h1>
+	
+		<div id="main-content">
+			<h1 id="page-title">Stacked Disclosure Pattern</h1>
 
-		<div class="stacked-disclosure" id="stack1">
-			<div class="stack-top">
-				<div class="stack-name">
-					Stacked Example 1
-				</div>
-				<button class="open-all" title="open all">
-					<span>Open All</span>
-					<svg><use xlink:href="#icon-open-all"></use></svg>
-				</button>
-				<button class="close-all">
-					<span>Close All</span>
-					<svg><use xlink:href="#icon-close-all"></use></svg>
-				</button>
-			</div>
+			<p>
+				The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion">accordion 
+				widget pattern</a> consists of a set of associated disclosure panels. Each panel 
+				can be opened or closed individually with the purpose of reducing the need to 
+				scroll through multiple sections on a page. Commonly, the accordion will 
+				typically limit it to only ONE panel open at a time. If a panel is open and 
+				the user opens another one, the other closes. This comes off as a potential 
+				antipattern in that the accordion can prevent the user from comparing the content 
+				in different panels. The accordion pattern works if the panel contents are truly 
+				independent of each other. That is rarely the case.
+			</p>
+			<p>
+				The <strong>stacked disclosure pattern</strong> presented here is a similar 
+				approach to the accordion pattern but permits multiple patterns to be open 
+				at any time. Additional features include controls to easily open or close all 
+				panels at once.
+			</p>
 
-			<div class="panel-control" data-disclosure-expanded="false">
-				<button class="toggle" aria-expanded="false">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
-					<div>
-						What is the best food ever?
-					</div>
-				</button>
-			</div>
-			<div class="panel">
-				<p>
-					The breakfast taco, found in Tex-Mex cuisine, is a soft corn or flour tortilla filled with meat, eggs, or cheese, and can also contain  other ingredients.
-				</p>
-				<p>
-					Indian tacos, or Navajo tacos, are made using frybread instead of tortillas. They are commonly eaten at pow-wows, festivals, and other gatherings by and for indigenous people in the United States and Canada.
-				</p>
-				<p>
-					This kind of taco is not known to have been present before the arrival of Europeans in what is now the Southwestern United States. Navajo tradition indicates that frybread came into use in the 1860s when the government forced the tribe to relocate from their homeland in Arizona in a journey known as the Long Walk of the Navajo. It was made from ingredients given to them by the government to supplement their diet since the region could not support growing the agricultural commodities that had been previously used.
-				</p>
-			</div>
+			<h2>Example</h2>
 
-			<div class="panel-control" data-disclosure-expanded="false">
-				<button class="toggle" aria-expanded="false">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>					
-					<div>
-						Why are tuxedo cats, the black-and-white ones with so many whiskers, so awesome and cute and silly and fluffy and cute and awesome?
-					</div>
-				</button>
-			</div>
-			<div class="panel">
-				<p>
-					Where there is low-to-medium grade white spotting limited to the face, paws, throat and chest of an otherwise black cat, they are known in the United States as a tuxedo cat. High-grade bicolor results in Van-pattern cats. There are many patterns between, such as "cap-and-saddle", "mask-and-mantle" and "magpie" (more randomly splashed). Bicolors are found in many cat breeds, as well as being common in domestic longhair and domestic shorthair cat
-				</p>
-				<p>
-					Another type of black-and-white bicolor cat is referred to as a "cow cat" or "moo cat" and includes the magpie, cap-and-saddle and mask-and-mantle patterns. A cow cat does not have the solid black "jacket" of the tuxedo cat. Instead, it has large black patches over a mostly white body, often with a black mask over the head. "Black-mask cats" are so called because they look like they are wearing a black mask over their head.
-				</p>
-			</div>
+			<h2>Design Aspects</h2>
 
-			<div class="panel-control" data-disclosure-expanded="false">
-				<button class="toggle" aria-expanded="false">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
-					<div>What is chocolate?</div>
-				</button>
-			</div>
-			<div class="panel">
-				<p>
-					Several types of chocolate can be distinguished. Pure, unsweetened chocolate, often called "baking chocolate", contains primarily cocoa solids and cocoa butter in varying proportions. Much of the chocolate consumed today is in the form of sweet chocolate, which combines chocolate with sugar.
-				</p>
-				<p>
-					Milk chocolate is sweet chocolate that also contains milk powder or condensed milk. In the UK and Ireland, milk chocolate must contain a minimum of 20% total dry cocoa solids; in the rest of the European Union, the minimum is 25%.
-				</p>
-				<p>
-					White chocolate, although similar in texture to that of milk and dark chocolate, does not contain any cocoa solids that impart a dark color. In 2002, the US Food and Drug Administration established a standard for white chocolate as the "common or usual name of products made from cacao fat (i.e., cocoa butter), milk solids, nutritive carbohydrate sweeteners, and other safe and suitable ingredients, but containing no nonfat cacao solids".
-				</p>
-				<p>
-					Unsweetened chocolate is pure chocolate liquor, also known as bitter or baking chocolate. It is unadulterated chocolate: the pure, ground, roasted chocolate beans impart a strong, deep chocolate flavor. It is typically used in baking or other products to which sugar and other ingredients are added. Raw chocolate, often referred to as raw cacao, is always dark and a minimum of 75% cacao.
-				</p>
-			</div>
+			
+
+			<ul>
+				<li>Progressive enhancement via being open by default. 
+				<li>Disclosures close on page load via a mutation observer to avoid screen repaints
+				<li>If no mutation observers, there's a backup
+				<li>Examples using headings or without heading. Best practices for them.
+				<li>Mention stuff about how headings should be used in this
+			</ul>
+
+			<h3> 
+				Why not use the <code>&lt;details&gt;</code> element?
+			</h3>
+			<p> 
+				The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">
+				<code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code></a> elements were 
+				added in HTML5 to provide a native disclosure element. Unfortunately, these 
+				elements are not a viable replacement for either the accordion or stacked 
+				disclosure patterns. The reasons are multi-fold:
+			</p>
+			<ul>
+				<li>
+					To meet the required interactions for either pattern, additional JavaScript
+					code would be required in addition to the native behaviors. 
+				</li>
+				<li>
+					The <code>&lt;summary&gt;</code> element cannot contain headings despite those
+					being a recommended practice as that leads to the 
+					<a href="https://daverupert.com/2019/12/why-details-is-not-an-accordion/">heading 
+					not being exposed</a> to screen readers. This is a known <a href="https://github.com/FreedomScientific/VFO-standards-support/issues/105">ongoing 
+					access issue</a>.
+				</li>
+				<li>
+					Although support for these new elements continues to grow, many inclusive approaches
+					mandate that <a href="https://caniuse.com/?search=details">Can I use...</a>
+					statistics for support meet a 
+					<a href="https://umnlibraries.github.io/design-system/code/general.html#support">98% 
+					threshold</a>. 
+				</li>
+			</ul>
 		</div>
+		
+		
 	</main>
 	<footer>
 		<div class="page-centered-content">

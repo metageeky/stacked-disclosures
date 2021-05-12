@@ -80,6 +80,11 @@ p + p {
 	margin-top: 0.75rem;
 }
 
+code {
+	font-family: "Lucida Console","Courier New",monospace;
+	word-break: break-all;
+}
+
 .offscreen {
 	position: absolute;
 	clip: rect(1px 1px 1px 1px);
@@ -157,113 +162,6 @@ main + footer a:visited{
 	width: 45%;
 }
 
-
-.stacked-disclosure {
-}
-.stacked-disclosure .stack-top {
-	display: flex; 
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-content: stretch;
-	align-items: flex-end;	
+#stack1 .stack-top {
 	border-bottom: 2px solid #666;
-}
-.stacked-disclosure .stack-top .stack-name {
-	flex: 1 1 auto;
-}
-.stacked-disclosure .stack-top button {
-	flex: 0 0 auto;
-	padding: 0;
-	line-height: 1;
-	border: 0;
-	background: transparent;
-	position: relative;
-}
-
-/* hide the button text visually */
-.stacked-disclosure .stack-top button span {
-	position: absolute;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0;
-	border: 0;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-/* hide the button text visually */
-.stacked-disclosure .stack-top button:hover span,
-.stacked-disclosure .stack-top button:focus span {
-	overflow: auto;
-	clip: auto;
-	width: auto;
-	height: auto;
-	display: block;
-	bottom: 100%;
-	left: -50%;
-	background-color: #ccc;
-	color: #000;
-	white-space: nowrap;
-	padding: 0.25em 0.5em;
-	font-size: 0.75rem;
-}
-
-.stacked-disclosure .stack-top button svg {
-	width: 2em;
-	height: 2em;
-	position: relative; 
-	top: 1px;
-}
-.stacked-disclosure .stack-top button:hover {
-	background: #d74100;
-	color: #fff;
-}
-
-
-
-.stacked-disclosure button.toggle {
-	background: transparent;
-	padding: 0;
-	width: 100%;
-	text-align: left;
-	border: 0;
-	line-height: 1.5;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: stretch;
-	margin-top: 0.5em;
-}
-.stacked-disclosure button.toggle svg {
-	width: 1em;
-	height: 1em;
-	flex: 0 0 auto;
-	position: relative;
-	top: 0.25em;
-	pointer-events: none;
-}
-.stacked-disclosure button.toggle div {
-	flex: 1 1 auto;
-	margin-left: 0.375em;
-	pointer-events: none;
-}
-
-.stacked-disclosure button.toggle svg {
-	display: none;
-}
-.stacked-disclosure button.toggle[aria-expanded="false"] svg.plus {
-	display: block;
-}
-.stacked-disclosure button.toggle[aria-expanded="true"] svg.minus {
-	display: block;
-}
-
-.stacked-disclosure div[data-disclosure-expanded="false"] + div.panel {
-	display: none;
-}
-.stacked-disclosure div[data-disclosure-expanded="true"] + div.panel {
-	display: block;
 }
