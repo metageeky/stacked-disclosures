@@ -1,6 +1,15 @@
 .stacked-disclosure {
 }
 
+.stacked-disclosure h1,
+.stacked-disclosure h2,
+.stacked-disclosure h3,
+.stacked-disclosure h4,
+.stacked-disclosure h5,
+.stacked-disclosure h6 {
+	margin: 0;
+}
+
 .stacked-disclosure .stack-top {
 	display: flex; 
 	flex-direction: row;
@@ -107,9 +116,9 @@
 	display: block;
 }
 
-.stacked-disclosure div[data-disclosure-expanded="false"] + div.panel {
+.stacked-disclosure *[data-disclosure-expanded="false"] + .panel {
 	display: none;
 }
-.stacked-disclosure div[data-disclosure-expanded="true"] + div.panel {
+.stacked-disclosure *[data-disclosure-expanded="true"] + .panel {
 	display: block;
 }

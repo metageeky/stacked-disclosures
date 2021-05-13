@@ -52,6 +52,10 @@
 	outline-offset: 2px;
 }
 
+[hidden] {
+	display: true;
+}
+
 body {
 	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
 	color: #101010;
@@ -158,10 +162,17 @@ main + footer a:visited{
 	color: #fff;
 }
 
-#stack1 {
+#stack2 {
 	width: 45%;
 }
 
-#stack1 .stack-top {
+#stack2 .stack-top {
 	border-bottom: 2px solid #666;
+}
+
+.stack-top button {
+	--highlight-color: transparent;
+}
+.stack-top button:hover {
+	--highlight-color: #ff0;
 }
