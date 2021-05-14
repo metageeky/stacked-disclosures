@@ -16,7 +16,8 @@
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-content: stretch;
-	align-items: flex-end;	
+	align-items: flex-end;
+	padding-bottom: 0.125rem;
 }
 
 .stacked-disclosure .stack-top .stack-name {
@@ -30,6 +31,7 @@
 	border: 0;
 	background: transparent;
 	position: relative;
+	height: 40px;
 }
 
 /* hide the button text visually */
@@ -50,32 +52,41 @@
 	width: auto;
 	height: auto;
 	display: block;
-	left: -50%;
+    left: 50%;
+    transform: translate(-50%, 0);
 	background-color: #fff;
 	border: solid #000 1px;
 	color: #000;
 	white-space: nowrap;
 	padding: 0.25em 0.375em;
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 }
 .stacked-disclosure .stack-top button.open-all:hover span,
 .stacked-disclosure .stack-top button.open-all:focus span {
-	bottom: calc(100% + 0.125em);
+	bottom: calc(100% + 0.125rem);
 }
 .stacked-disclosure .stack-top button.close-all:hover span,
 .stacked-disclosure .stack-top button.close-all:focus span {
-	top: calc(100% + 0.25em);
+	top: calc(100% + 0.125rem);
 }
 
 .stacked-disclosure .stack-top button svg {
-	width: 2em;
-	height: 2em;
+	width: 40px;
+	height: 40px;
 	position: relative; 
 	top: 1px;
+	line-height: 1;
 }
 
 
-
+.stacked-disclosure button {
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
 
 .stacked-disclosure button.toggle {
 	background: transparent;

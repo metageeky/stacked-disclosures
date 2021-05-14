@@ -53,7 +53,7 @@
 }
 
 [hidden] {
-	display: true;
+	display: none;
 }
 
 body {
@@ -171,8 +171,20 @@ main + footer a:visited{
 }
 
 .stack-top button {
+	--top-fill-color: transparent;
+	--top-stroke-color: currentColor;
+	--icon-color: currentColor;
+	--stroke-color: currentColor;
 	--highlight-color: transparent;
 }
-.stack-top button:hover {
-	--highlight-color: #ff0;
+.stack-top button:hover,
+.stack-top button:focus {
+	--top-fill-color: #203299;
+	--top-stroke-color: currentColor;
+	--icon-color: #fff;
+	--stroke-color: currentColor;
+	--highlight-color: #adb3b8;
+}
+.stack-top button:focus {
+	outline-offset: -1px;
 }
