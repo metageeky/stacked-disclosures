@@ -129,7 +129,8 @@ code {
 	padding-left: 15px;
 	padding-right: 15px;
 	max-width: 900px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
