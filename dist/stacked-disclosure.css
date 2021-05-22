@@ -1,12 +1,10 @@
 .stacked-disclosure {
 }
 
-.stacked-disclosure h1,
-.stacked-disclosure h2,
-.stacked-disclosure h3,
-.stacked-disclosure h4,
-.stacked-disclosure h5,
-.stacked-disclosure h6 {
+.stacked-disclosure .stack-top,
+.stacked-disclosure .stack-name,
+.stacked-disclosure .panel-toggle,
+.stacked-disclosure .panel {
 	margin: 0;
 }
 

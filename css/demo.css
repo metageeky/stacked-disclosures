@@ -1,0 +1,46 @@
+
+header h1 span {
+	white-space: nowrap;
+}
+@media screen and (max-width: 500px) {
+	header h1 {
+		font-size: 1.875rem;
+	}
+}
+
+#ExampleStack {
+	width: 400px;
+	border: 2px solid #666;
+	padding: 0.5rem 1rem;
+	margin: 1rem auto;
+}
+
+#ExampleStack .stack-top {
+	border-bottom: 2px solid #666;
+}
+
+#ExampleStack .stack-top .stack-name {
+	font-size: 1.75rem;
+}
+
+#ExampleStack .stack-top button {
+	--top-fill-color: transparent;
+	--top-stroke-color: currentColor;
+	--icon-color: currentColor;
+	--stroke-color: currentColor;
+	--highlight-color: transparent;
+}
+#ExampleStack .stack-top button:hover,
+#ExampleStack .stack-top button:focus {
+	--top-fill-color: #203299;
+	--top-stroke-color: currentColor;
+	--icon-color: #fff;
+	--stroke-color: currentColor;
+	--highlight-color: #adb3b8;
+}
+#ExampleStack .stack-top button:focus {
+	outline-offset: -1px;
+}
+#ExampleStack .panel-toggle button {
+	font-weight: 600;
+}

@@ -27,22 +27,25 @@ if('MutationObserver' in window) {
 	Set up the events for the stacked disclosure. Close the panels in case 
 	they have not been closed 
 */
-window.onload = function() {
+window.addEventListener('load', function(event) { 
+	// turn off the MutationObserver if used
+	if('MutationObserver' in window && StackedDisclosure.observer !== undefined) {
+		StackedDisclosure.observer.disconnect();
+		StackedDisclosure.observer = undefined;
+	}
+	// if MutationObserver is not supported, we need to close all the panels
+	else {
+		for(e of document.querySelectorAll('.stacked-disclosure *[aria-expanded="true"]')) {
+			e.setAttribute('aria-expanded', 'false');
+			e.parentElement.setAttribute('data-disclosure-expanded', 'false');
+		}
+	}
+
 	let stacks = document.querySelectorAll('.stacked-disclosure');
+	// for each stacked disclosure on the page (in case there are multiples
 	for(stack of stacks) {
-		// turn off the MutationObserver if used or close the disclosure panels
-		if('MutationObserver' in window && StackedDisclosure.observer !== undefined) {
-			StackedDisclosure.observer.disconnect();
-			StackedDisclosure.observer = undefined;
-		}
-		else {
-			for(e of document.querySelectorAll('[aria-expanded="true"]')) {
-				e.setAttribute('aria-expanded', 'false');
-				e.parentElement.setAttribute('data-disclosure-expanded', 'false');
-			}
-		}
-				
-		// add aria-expanded and data-disclosure-expanded click event to toggles
+		// add aria-expanded and data-disclosure-expanded click event to toggles in this stack
+		let stack_name = stack.querySelector('.stack-name');
 		let toggles = stack.querySelectorAll('button.toggle');
 		for(tog of toggles) {
 			tog.addEventListener('click', function(evt) {
@@ -50,6 +53,7 @@ window.onload = function() {
 				if(evt.target.getAttribute('aria-expanded') == 'false') {
 					evt.target.setAttribute('aria-expanded', 'true');
 					evt.target.parentElement.setAttribute('data-disclosure-expanded', 'true');
+
 				}
 				// close panel
 				else {
@@ -75,7 +79,7 @@ window.onload = function() {
 			}
 		});
 	}
-}
+});
 
 
 

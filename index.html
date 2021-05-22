@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>Stacked Disclosure Pattern</title>
 
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/local.css">
@@ -15,6 +15,8 @@
 	
 	<link rel="stylesheet" href="dist/stacked-disclosure.css">
 	<script src="dist/stacked-disclosure.js"></script>
+	
+	<link rel="stylesheet" href="css/demo.css">
 </head>
 
 <body>
@@ -38,6 +40,7 @@
 				<path fill="none" stroke="currentColor" stroke-width="10" style="stroke: var(--stroke-color, currentColor)" d="M30 165h140M185 50v135"/>
 				<g fill="none" stroke="transparent" style="stroke: var(--highlight-color, transparent)" stroke-width="10"  >
 					<path d="M40 175h140M155 20v140M20 155h140M175 40v140"/>
+				</g>
 			</symbol>
 			<symbol id="icon-open-all" viewBox="0 0 200 200">
 				<path stroke-width="10" stroke="currentColor" fill="transparent" style="fill: var(--top-fill-color, transparent); stroke: var(--top-stroke-color, currentColor)" d="M15 15h130v130H15z"/>
@@ -48,120 +51,258 @@
 					<path d="M40 175h140M155 20v140M20 155h140M175 40v140"/>
 				</g>
 			</symbol>
+			<symbol id="icon-link" viewBox="0 0 32 32" xml:space="preserve">
+				<title>Pelase don't see this</title>
+				<g stroke="currentColor" fill="currentColor" >
+					<path d="M11 5v6H5v2h6v6H5v2h6v6h2v-6h6v6h2v-6h6v-2h-6v-6h6v-2h-6V5h-2v6h-6V5zm2 8h6v6h-6z"/>
+				</g>
+			</symbol>
+			<symbol id="icon-github" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+			</symbol>
+			<symbol id="icon-twitter" viewBox="0 0 48 48">
+				<circle cx="24" cy="24" fill="#fff" r="24"/>
+				<path d="M36.8 15.4c-.9.5-2 .8-3 .9 1.1-.7 1.9-1.8 2.3-3.1-1 .6-2.1 1.1-3.4 1.4-1-1.1-2.3-1.8-3.8-1.8-2.9 0-5.3 2.5-5.3 5.7 0 .4 0 .9.1 1.3-4.4-.2-8.3-2.5-10.9-5.9-.5.8-.7 1.8-.7 2.9 0 2 .9 3.7 2.3 4.7-.9 0-1.7-.3-2.4-.7v.1c0 2.7 1.8 5 4.2 5.6-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.7 2.3 2.6 3.9 4.9 3.9-1.8 1.5-4.1 2.4-6.5 2.4-.4 0-.8 0-1.3-.1 2.3 1.6 5.1 2.6 8.1 2.6 9.7 0 15-8.6 15-16.1v-.7c1.2-1 2.1-2 2.8-3.2z" fill="#000"/>
+			</symbol>
 		</svg>
 	</div>
-	<header>
-		<banner>
-			<a class="skipnavlink offscreen" href="#main">
-				Skip to main content
-			</a>
-		</banner>
-	</header>
-	<main id="main" class="page-centered-content">
 	
-		<div id="main-content">
-			<h1 id="page-title">Stacked Disclosure Pattern</h1>
-			<p>
-				The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion">accordion 
-				widget pattern</a> consists of a set of associated disclosure panels. Each panel 
-				can be opened or closed individually with the purpose of reducing the need to 
-				scroll through multiple sections on a page. Commonly, the accordion will 
-				typically limit it to only ONE panel open at a time. If a panel is open and 
-				the user opens another one, the other closes. This comes off as a potential 
-				antipattern in that the accordion can prevent the user from comparing the content 
-				in different panels. The accordion pattern works if the panel contents are truly 
-				independent of each other. That is rarely the case.
-			</p>
-			<p>
-				The <strong>stacked disclosure pattern</strong> presented here is a similar 
-				approach to the accordion pattern but permits multiple panels to be open 
-				at any time. Additional features include controls to easily open or close all 
-				panels at once.
-			</p>
+	<header aria-labelledby="h1">
+		<a class="skipnavlink offscreen" href="#main">
+			Skip to main content
+		</a>
+		<h1 id="h1" class="page-centered-content">
+			Stacked Disclosure Pattern: 
+			<span>An Accordion Variant</span>
+		</h1>
+	</header>
+	
+	<main id="main" class="page-centered-content">
+		<section aria-labelledby="Introduction">
+		<h2 class="offscreen" id="Introduction">
+			Introduction
+		</h2>
+		<p>
+			The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion">accordion 
+			widget pattern</a> consists of a set of associated disclosure panels. Each panel 
+			can be opened or closed individually with the purpose of reducing the need to 
+			scroll through multiple sections on a page. Commonly, the accordion will 
+			typically limit it to only ONE panel open at a time. If a panel is open and 
+			the user opens anothe, the formerly open one closes. This comes off as a potential 
+			antipattern in that the accordion can prevent the user from comparing the content 
+			in different panels. The approach to accordions works if the panel contents are truly 
+			independent of each other. That is rarely the case.
+		</p>
+		<p>
+			While some <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html">
+			accordion code examples</a> include configuation to control how many panels can be
+			open at a time, the accordion variation presented here is expllicitly restricted. 
+			The <strong>stacked disclosure pattern</strong> explicitly prevents this antipattern by
+			allowing any number of panels to be open (or closed at a time). Additionally, to support
+			managing the panels, the stacked disclosure requires buttons to open or close all the 
+			panels at once.
+		</p>
+		</section>
 
-			<h2>Example</h2>
+		<section aria-labelledby="Example">
+			<div class="header-anchor">
+				<h2 id="Example">
+					Example Stacked Accordion
+				</h2>
+				<a href="#Example">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Example Stamped Accordion Link</span>
+				</a>
+			</div>
 			
+			<p>
+				The example below, <a href="#ExampleStack">Cat Coat Patterns</a>, 
+				showcases the basic features of the stacked diclosure in
+				action. At the top of the widget is an <code>&lt;H3&gt;</code>
+				that names the entire widget. To the right of this heading
+				are the Open All and Close All button that show a tooltip 
+				on <i>hover</i> and <i>focus</i>. The three disclosure panels 
+				are controlled by three toggles which are buttons embedded 
+				inside <code>&lt;H4&gt;</code> headings that also label the
+				toggled panels.
+			</p>
+				
 
-		<div class="stacked-disclosure" id="stack2" aria-labelledby="stack2-heading" role="region">
-			<div class="stack-top">
-				<h3 class="stack-name" id="stack2-heading">
-					Cat Coat Patterns
-				</h3>
-				<button class="open-all">
-					<span>Open All</span>
-					<svg><use xlink:href="#icon-open-all"></use></svg>
-				</button>
-				<button class="close-all">
-					<span>Close All</span>
-					<svg><use xlink:href="#icon-close-all"></use></svg>
-				</button>
+			<div class="stacked-disclosure" id="ExampleStack" aria-labelledby="ExampleStack-heading" role="region">
+				<div class="stack-top">
+					<h3 class="stack-name" id="ExampleStack-heading">
+						Cat Coat Patterns
+					</h3>
+					<button class="open-all">
+						<span>Open All</span>
+						<svg><use xlink:href="#icon-open-all"></use></svg>
+					</button>
+					<button class="close-all">
+						<span>Close All</span>
+						<svg><use xlink:href="#icon-close-all"></use></svg>
+					</button>
+				</div>
+
+				<h4 class="panel-toggle" data-disclosure-expanded="true">
+					<button class="toggle" aria-expanded="true">
+						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+						<div class="toggle-text">
+							Tuxedo Cats
+						</div>
+					</button>
+				</h4>
+				<div class="panel">
+					<p>
+						Tuxedo cats refer to cats whose coats are a mix of only white and black, 
+						although there are dilute tuxedos who are gray and white. However, not 
+						all cats with black and white coats are "proper" tuxedos. A "true" tuxedo
+						looks like they are in formal wear. They usually have a white belly that
+						extends up to the next or face while the rest is black, just like a tuxedo
+						shirt and coat. Quite often, they they will have more white on their face
+						(including mustaches) as well as the very popular white socks at the end of
+						their legs.
+					</p>
+				</div>
+
+				<h4 class="panel-toggle" data-disclosure-expanded="true">
+					<button class="toggle" aria-expanded="true">
+						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>					
+						<div class="toggle-text">
+							Calico Cats
+						</div>
+					</button>
+				</h4>
+				<div class="panel">
+					<p>
+						The calico cat is an amazing genetic circumstance that produces at tricolor
+						cat of white, orange, and either gray or black. Because some coat colorings
+						are sex-linked traits, it is extremely rare for a calico cat to be a male. 
+						In such cases, a male calico usually has some genetic anomalies such as being
+						intersexed or having a chromosome duplication. The consequences are generally
+						sterility but a beautiful coat.
+					</p>
+				</div>
+
+				<h4 class="panel-toggle" data-disclosure-expanded="true">
+					<button class="toggle" aria-expanded="true">
+						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+						<div class="toggle-text">
+							White Cats
+						</div>
+					</button>
+				</h4>
+				<div class="panel">
+					<p>
+						A white cat is not necessarily albino, but there is a decent chance that
+						the cat may have some degree of deafness. The degree of deafness is linked
+						to eyecolor. White cats with blue eyes have a very high chance of being deaf,
+						while other eye colors still have a higher chance of hearing issues compared
+						to other cat coat patterns and colors.
+					</p>
+				</div>
+				</div>
 			</div>
-
-			<h4 class="panel-control" data-disclosure-expanded="true">
-				<button class="toggle" aria-expanded="true">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
-					<div>
-						Tuxedo Cats
-					</div>
-				</button>
-			</h4>
-			<div class="panel">
-				<p>
-					Tuxedo cats refer to cats whose coats are a mix of only white and black, 
-					although there are dilute tuxedos who are gray and white. However, not 
-					all cats with black and white coats are "proper" tuxedos. A "true" tuxedo
-					looks like they are in formal wear. They usually have a white belly that
-					extends up to the next or face while the rest is black, just like a tuxedo
-					shirt and coat. Quite often, they they will have more white on their face
-					(including mustaches) as well as the very popular white socks at the end of
-					their legs.
-				</p>
+		
+			<div class="header-anchor">
+				<h3 id="HTML">
+					HTML Structure
+				</h2>
+				<a href="#HTML">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>HTML Structure Link</span>
+				</a>
 			</div>
-
-			<h4 class="panel-control" data-disclosure-expanded="true">
-				<button class="toggle" aria-expanded="true">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>					
-					<div>
-						Calico Cats
-					</div>
-				</button>
-			</h4>
-			<div class="panel">
-				<p>
-					The calico cat is an amazing genetic circumstance that produces at tricolor
-					cat of white, orange, and either gray or black. Because some coat colorings
-					are sex-linked traits, it is extremely rare for a calico cat to be a male. 
-					In such cases, a male calico usually has some genetic anomalies such as being
-					intersexed or having a chromosome duplication. The consequences are generally
-					sterility but a beautiful coat.
-				</p>
-			</div>
-
-			<h4 class="panel-control" data-disclosure-expanded="true">
-				<button class="toggle" aria-expanded="true">
-					<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-					<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
-					<div>White Cats</div>
-				</button>
-			</h4>
-			<div class="panel">
-				<p>
-					A white cat is not necessarily albino, but there is a decent chance that
-					the cat may have some degree of deafness. The degree of deafness is linked
-					to eyecolor. White cats with blue eyes have a very high chance of being deaf,
-					while other eye colors still have a higher chance of hearing issues compared
-					to other cat coat patterns and colors.
-				</p>
-			</div>
-			</div>
-		</div>
-
-			<h2>Design Aspects</h2>
-
-<pre><code class="language-html">
+		
+			<p>
+				The general HTML structure of any stacked disclosure follows a fixed pattern
+				that begins with the top matter followed by toggles and panels:
+			</p>
+			
+<pre><code class="language-html">&lt;div role="region" class="stacked-disclosure" aria-labelledby="ID-STACK-NAME"&gt;
+	&lt;div class="stack-top"&gt;
+		&lt;h3 id="ID-STACK-NAME"> ... &lt;/h3&gt;
+		&lt;button class="open-all"&gt;
+			&lt;span&gt;Open All&lt;/span&gt;
+			&lt;svg&gt;&lt;use xlink:href="#icon-open-all"&gt;&lt;/use&gt;&lt;/svg&gt;
+		&lt;/button&gt;
+		&lt;button class="close-all"&gt;
+			&lt;span&gt;Close All&lt;/span&gt;
+			&lt;svg&gt;&lt;use xlink:href="#icon-close-all"&gt;&lt;/use&gt;&lt;/svg&gt;
+		&lt;/button&gt;
+	&lt;/div&gt; &lt;!-- end stack top --&gt;
+	
+	&lt;h4 class="panel-toggle" data-disclosure-expanded="true / false"&gt;
+		&lt;button class="toggle" aria-expanded="true / false"&gt;
+			&lt;svg class="plus"&gt;&lt;use xlink:href="#icon-plus"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;svg class="minus"&gt;&lt;use xlink:href="#icon-minus"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;div class="toggle-text"&gt; ... &lt;/div&gt;
+		&lt;/button&gt;
+	&lt;/h4&gt; &lt;!-- end panel toggle --&gt;
+	&lt;div class="panel"&gt;
+		...
+	&lt;/div&gt; &lt;!-- end panel --&gt;
+	
+	&lt;!-- repeat panel-toggle and panel --&gt;
+	
+&lt;div&gt; &lt;!-- end stacked disclosure --&gt;
 </code></pre>
+
+			<p>
+				If you wish to use the open all, close all, plus, or minus SVG icons used
+				in this demo, include the following SVG code on your page:
+			</p>
+			<details>
+				<summary>Show SVG Icon Code</summary>
+			
+<pre><code class="language-html">&lt;svg hidden aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+	&lt;symbol id="icon-plus" viewBox="0 0 90 90"&gt;
+		&lt;g&gt;
+			&lt;line stroke-width="20" stroke="currentColor" fill="none" y2="85" y1="5" x2="45" x1="45"/&gt;
+			&lt;line stroke-width="20" stroke="currentColor" fill="none" y2="45" y1="45" x2="85" x1="5"/&gt;
+		&lt;/g&gt;
+	&lt;/symbol&gt;
+	&lt;symbol id="icon-minus" viewBox="0 0 90 90"&gt;
+		&lt;g&gt;
+			&lt;line stroke-width="20" stroke="currentColor" fill="none" y2="45" y1="45" x2="85" x1="5"/&gt;
+		&lt;/g&gt;
+	&lt;/symbol&gt;
+	&lt;symbol id="icon-close-all" viewBox="0 0 200 200"&gt;
+		&lt;path stroke-width="10" stroke="currentColor" fill="transparent" style="fill: var(--top-fill-color, transparent); stroke: 	var(--top-stroke-color, currentColor)" d="M15 15h130v130H15z"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="20" style="stroke: var(--icon-color, currentColor)" d="M40 80h80"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="10" style="stroke: var(--stroke-color, currentColor)" d="M50 185h140M165 30v140"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="10" style="stroke: var(--stroke-color, currentColor)" d="M30 165h140M185 50v135"/&gt;
+		&lt;g fill="none" stroke="transparent" style="stroke: var(--highlight-color, transparent)" stroke-width="10"  &gt;
+			&lt;path d="M40 175h140M155 20v140M20 155h140M175 40v140"/&gt;
+		&lt;/g&gt;
+	&lt;/symbol&gt;
+	&lt;symbol id="icon-open-all" viewBox="0 0 200 200"&gt;
+		&lt;path stroke-width="10" stroke="currentColor" fill="transparent" style="fill: var(--top-fill-color, transparent); stroke: var(--top-stroke-color, currentColor)" d="M15 15h130v130H15z"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="20" style="stroke: var(--icon-color, currentColor)" d="M80 40v80M40 80h80"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="10" style="stroke: var(--stroke-color, currentColor)" d="M50 185h140M165 30v140"/&gt;
+		&lt;path fill="none" stroke="currentColor" stroke-width="10" style="stroke: var(--stroke-color, currentColor)" d="M30 165h140M185 50v135"/&gt;
+		&lt;g fill="none" stroke="transparent" style="stroke: var(--highlight-color, transparent)" stroke-width="10"  &gt;
+			&lt;path d="M40 175h140M155 20v140M20 155h140M175 40v140"/&gt;
+		&lt;/g&gt;
+	&lt;/symbol&gt;
+&lt;/svg&gt;
+</code></pre>
+			</details>
+		</section>
+
+		<section aria-labelledby="Design">
+			<div class="header-anchor">
+				<h2 id="Design">
+					Design Aspects
+				</h2>
+				<a href="#Design">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Design Aspects Accordion Link</span>
+				</a>
+			</div>
+
 
 			<h3>Progressive Enhancement</h3>
 			<p>
@@ -211,13 +352,27 @@
 					threshold</a>. 
 				</li>
 			</ul>
-		</div>
+			
+		</section>
 		
 		
 	</main>
-	<footer>
+	
+	<footer aria-label="Additional Information">
 		<div class="page-centered-content">
-			A footer of something. Perhaps a leg?
+			<img id="avatar" src="https://metageeky.github.io/resources/avatar-bg.png" alt="Cartoon avatar of a bespectacled brunette geek girl in a green hoodie in front of a bookcase" />
+			<div>
+				a metageeky production
+			</div>
+			<div class="spacer"></div>
+			<a class="social-media" href="https://twitter.com/metageeky">
+				<svg><use xlink:href="#icon-twitter"></use></svg>
+				<span>twitter</span>
+			</a>
+			<a class="social-media" href="https://github.com/metageeky">
+				<svg><use xlink:href="#icon-github"></use></svg>
+				<span>github
+			</a>
 		</div>
 	</footer>
 
