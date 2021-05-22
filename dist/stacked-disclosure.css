@@ -43,8 +43,9 @@
 	width: 1px;
 	overflow: hidden;
 }
-.stacked-disclosure .stack-top button:hover span,
-.stacked-disclosure .stack-top button:focus span {
+/* if the stacked-disclosure includes the tooltip option, show tooltips */
+.stacked-disclosure.tooltip .stack-top button:hover span,
+.stacked-disclosure.tooltip .stack-top button:focus span {
 	overflow: auto;
 	clip: auto;
 	width: auto;
@@ -59,12 +60,12 @@
 	padding: 0.25em 0.375em;
 	font-size: 0.75rem;
 }
-.stacked-disclosure .stack-top button.open-all:hover span,
-.stacked-disclosure .stack-top button.open-all:focus span {
+.stacked-disclosure.tooltip .stack-top button.open-all:hover span,
+.stacked-disclosure.tooltip .stack-top button.open-all:focus span {
 	bottom: calc(100% + 0.125rem);
 }
-.stacked-disclosure .stack-top button.close-all:hover span,
-.stacked-disclosure .stack-top button.close-all:focus span {
+.stacked-disclosure.tooltip .stack-top button.close-all:hover span,
+.stacked-disclosure.tooltip .stack-top button.close-all:focus span {
 	top: calc(100% + 0.125rem);
 }
 

@@ -254,8 +254,6 @@
 				If you wish to use the open all, close all, plus, or minus SVG icons used
 				in this demo, include the following SVG code on your page:
 			</p>
-			<details>
-				<summary>Show SVG Icon Code</summary>
 			
 <pre><code class="language-html">&lt;svg hidden aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
 	&lt;symbol id="icon-plus" viewBox="0 0 90 90"&gt;
@@ -289,7 +287,9 @@
 	&lt;/symbol&gt;
 &lt;/svg&gt;
 </code></pre>
-			</details>
+
+		<h3>Configuration Options</h3>
+
 		</section>
 
 		<section aria-labelledby="Design">
@@ -303,6 +303,22 @@
 				</a>
 			</div>
 
+			<h3>Design Specifications</h3>
+			<ul>
+				<li>All panels open/close independently</li>
+				<li>Required open all/close all buttons</li>
+				<li>Required use of headings</li>
+			</ul>
+			
+			<h3>Accessibility Features</h3>
+			<ul>
+				<li>Semantic HTML and built-in keyboard functionality</li>
+				<li>aria-expanded 
+				<li>Region for the accordion with aria-labelledby for the whole thing but not the individual panels</li>
+				<li>messaging for open close all</li>
+				<li>optional tooltips</li>
+				<li>progressive enhancement (see section)</li>
+			</ul>
 
 			<h3>Progressive Enhancement</h3>
 			<p>
