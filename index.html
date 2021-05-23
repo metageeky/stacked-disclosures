@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="dist/stacked-disclosure.css">
 	<script src="dist/stacked-disclosure.js"></script>
 	
+	<script src="https://metageeky.github.io/screen-reader-messaging/dist/sr-messaging.js"></script>
+	
 	<link rel="stylesheet" href="css/demo.css">
 </head>
 
@@ -128,7 +130,7 @@
 			</p>
 				
 
-			<div class="stacked-disclosure" id="ExampleStack" aria-labelledby="ExampleStack-heading" role="region">
+			<div class="stacked-disclosure tooltip" id="ExampleStack" aria-labelledby="ExampleStack-heading" role="region">
 				<div class="stack-top">
 					<h3 class="stack-name" id="ExampleStack-heading">
 						Cat Coat Patterns
@@ -220,10 +222,14 @@
 				The general HTML structure of any stacked disclosure follows a fixed pattern
 				that begins with the top matter followed by toggles and panels:
 			</p>
+			<details>
+				<summary>
+					Stacked Disclosure HTML
+				</summary>
 			
 <pre><code class="language-html">&lt;div role="region" class="stacked-disclosure" aria-labelledby="ID-STACK-NAME"&gt;
 	&lt;div class="stack-top"&gt;
-		&lt;h3 id="ID-STACK-NAME"> ... &lt;/h3&gt;
+		&lt;h3 class="stack-name" id="ID-STACK-NAME"> ... &lt;/h3&gt;
 		&lt;button class="open-all"&gt;
 			&lt;span&gt;Open All&lt;/span&gt;
 			&lt;svg&gt;&lt;use xlink:href="#icon-open-all"&gt;&lt;/use&gt;&lt;/svg&gt;
@@ -249,12 +255,29 @@
 	
 &lt;div&gt; &lt;!-- end stacked disclosure --&gt;
 </code></pre>
+</details>
+
+			<p>
+				Note that headings should be used in the stacked disclosure 
+				for the <code class="language-html">.stack-name</code> and
+				the <code class="language-html">.panel-toggle</code> elements.
+				This benefits any users of assistive technologies. Note that
+				the headings should be properly nested. For example, if an 
+				<code class="language-html">&lt;h4&gt;</code> is used for
+				the stack's name, the panel toggles need to be 
+				<code class="language-html">&lt;h5&gt;</code> elements.
+			</p>
 
 			<p>
 				If you wish to use the open all, close all, plus, or minus SVG icons used
-				in this demo, include the following SVG code on your page:
+				in this demo, include the following SVG code on your page. Note that this
+				code intentionally hides the SVG from screen readers, meaning that any use
+				of the icons should provide proper accessible naming of where it is used.
 			</p>
-			
+			<details>
+				<summary>
+					SVG Icon HTML
+				</summary>
 <pre><code class="language-html">&lt;svg hidden aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
 	&lt;symbol id="icon-plus" viewBox="0 0 90 90"&gt;
 		&lt;g&gt;
@@ -287,8 +310,35 @@
 	&lt;/symbol&gt;
 &lt;/svg&gt;
 </code></pre>
+</details>
 
-		<h3>Configuration Options</h3>
+			<div class="header-anchor">
+				<h3 id="Configuration">
+					Configuration Options
+				</h3>
+				<a href="#Configuration">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Configuration Options Link</span>
+				</a>
+			</div>
+			<p>
+				Two configuration options are included with the stacked-disclosures. The 
+				first is the optional display of tooltips on the open all and close all
+				buttons. One can turn on the tooltips by including the <code>tooltip</code>
+				class on the stacked disclosure outer element:
+			</p>
+<pre><code class="language-html">&lt;div role="region" class="stacked-disclosure tooltip" aria-labelledby="ID-STACK-NAME"&gt;
+</code></pre>
+
+			<p>
+				The other option involves including the 
+				<a href="https://metageeky.github.io/screen-reader-messaging/">Screen 
+				Reader Messaging JavaScript library</a> on your page. If this library 
+				is optionally loaded, the open all and close all buttons will inform 
+				screen readers that the panels were successful all opened or closed. 
+				This is arguably an accessibility improvement as these buttons 
+				otherwise give no indication if any panels are open or closed. 
+			</p>
 
 		</section>
 
@@ -303,71 +353,120 @@
 				</a>
 			</div>
 
-			<h3>Design Specifications</h3>
+			<div class="header-anchor">
+				<h3 id="Specifications">
+					Design Specifications
+				</h3>
+				<a href="#Specifications">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Design Specifications Link</span>
+				</a>
+			</div>
+			<p> 
+				The Stacked Disclosure pattern was created to meet the specific needs
+				of a client to ensure that all accordions performed consistently on 
+				a site. The design request specified:
+			</p>
+				
 			<ul>
-				<li>All panels open/close independently</li>
-				<li>Required open all/close all buttons</li>
-				<li>Required use of headings</li>
+				<li>
+					Each accordion can have any number of panels opened or closed
+					at any time independent of each other.
+				</li>
+				<li>
+					The accordion has options to open or close all the panels at
+					once.
+				</li>
+				<li>
+					The overall accordion conforms and possibly exceeds accessibility
+					standards.
+				</li>
 			</ul>
 			
-			<h3>Accessibility Features</h3>
-			<ul>
-				<li>Semantic HTML and built-in keyboard functionality</li>
-				<li>aria-expanded 
-				<li>Region for the accordion with aria-labelledby for the whole thing but not the individual panels</li>
-				<li>messaging for open close all</li>
-				<li>optional tooltips</li>
-				<li>progressive enhancement (see section)</li>
-			</ul>
-
-			<h3>Progressive Enhancement</h3>
+			<div class="header-anchor">
+				<h3 id="Accessibility">
+					Accessibility Features
+				</h3>
+				<a href="#Accessibility">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Accessibility Features Link</span>
+				</a>
+			</div>
 			<p>
-				If the user's browser does not support JavaScript, the disclosure panels are
-				open by default. If JavaScript is available, the panels are closed either by:
+				As accessibility was a key goal of the stacked disclosure pattern,
+				multiple design decisions were made to ensure accessibility. These
+				decisions were informed by the 
+				<a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html">
+				WAI-ARIA accordion example</a> but modified to meet the design 
+				specifications and current browser capabilities.
 			</p>
 			<ul>
 				<li>
-					A mutation observer closes each panel as it is added to the DOM. This 
-					prevents page flashing.
+					<p>
+						The entire HTML intentionally uses semantic HTML properly.
+						All interactive elements are 
+						<code class="language-html">&lt;button&gt;</code> and thus 
+						come with the appropriate and expected built-in keyboard 
+						functionality. 
+					</p>
+					<p>
+						One exception to using semantic HTML was the decision to not
+						use the native disclosure elements 
+						<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">
+						<code class="language-html">&lt;details&gt;</code> and 
+						<code class="language-html">&lt;summary&gt;</code></a>. The 
+						<code class="language-html">&lt;summary&gt;</code> element cannot 
+						contain headings despite those being a recommended practice as that leads to the 
+						<a href="https://daverupert.com/2019/12/why-details-is-not-an-accordion/">heading 
+						not being exposed</a> to screen readers. This is a known <a href="https://github.com/FreedomScientific/VFO-standards-support/issues/105">ongoing 
+						access issue</a>. As accordion toggles are recommended to be headings, this is 
+						the major reason why accordions should not rely on the 
+						<code class="language-html">&lt;details&gt;</code> element currently.						
+					</p>
+				</li>
+				<li>The toggle buttons for the panels utilize 
+					<code class="language-html">aria-expanded="true / false"</code>
+					to indicate to screen readers the state of each panel. 
 				</li>
 				<li>
-					If mutation observers are not supported, a more basic script closes the
-					panels.
+					The stacked disclosure is expected to use properly nested heading
+					elements for the <code class="language-html">.stack-name</code> and
+					the <code class="language-html">.panel-toggle</code> elements in 
+					order to make clear the overall structure of the disclosures.
+				</li>
+				<li>
+					<p>
+						The overall stacked disclosure is markes as being a
+						<code class="language-html">role="region"</code> landmark. It
+						is also named via <code class="language-html">aria-labelledby</code>
+						assigned to the <code class="language-html">.stack-name</code>.
+					</p>
+					<p>
+						Marking individual panels as regions was also considered but
+						decided against for the same reason articulated in the 
+						<a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties">WAI-ARIA
+						accordion pattern</a>: overuse of landmark regions can lead to 
+						confusingly complex structures reported by screen readers.
+					</p>
+				</li>
+				<li>
+					The Open All and Close All buttons have appropriate accessible
+					names despite being represented only by icons. These names can
+					optionally also be provided as tooltips if so desired. Usage of
+					either button can also optionally provide feedback to screen 
+					readers via an ARIA live region if an additional library is 
+					loaded.
+				</li>
+				<li>
+					For progressive enhancement purposes, the disclosure panels are
+					set to open by default. If JavaScript is available, the panels
+					are closed on page load. If mutation observers are available, the
+					panels are closed as they are added to the DOM in order to prevent 
+					page flashing.
 				</li>
 			</ul>
 
-			<h3> 
-				Why not use the <code>&lt;details&gt;</code> element?
-			</h3>
-			<p> 
-				The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">
-				<code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code></a> elements were 
-				added in HTML5 to provide a native disclosure element. Unfortunately, these 
-				elements are not a viable replacement for either the accordion or stacked 
-				disclosure patterns. The reasons are multi-fold:
-			</p>
-			<ul>
-				<li>
-					The <code>&lt;summary&gt;</code> element cannot contain headings despite those
-					being a recommended practice as that leads to the 
-					<a href="https://daverupert.com/2019/12/why-details-is-not-an-accordion/">heading 
-					not being exposed</a> to screen readers. This is a known <a href="https://github.com/FreedomScientific/VFO-standards-support/issues/105">ongoing 
-					access issue</a>. As accordion toggles are recommended to be headings, this is 
-					the major reason why accordions should not rely on the <code>&lt;details&gt;</code>
-					element currently.
-				</li>
-				<li>
-					To meet the required interactions for either pattern, additional JavaScript
-					code would be required in addition to the native behaviors. 
-				</li>
-				<li>
-					Although support for these new elements continues to grow, many inclusive approaches
-					mandate that <a href="https://caniuse.com/?search=details">Can I use...</a>
-					statistics for support meet a 
-					<a href="https://umnlibraries.github.io/design-system/code/general.html#support">98% 
-					threshold</a>. 
-				</li>
-			</ul>
+
 			
 		</section>
 		

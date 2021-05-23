@@ -182,7 +182,8 @@ code {
 	word-break: break-all;
 }
 
-p > code[class*="language-"] {
+p  code[class*="language-"],
+li code[class*="language-"]{
 	white-space: nowrap !important;
 	border: 0 !important;
 	padding: 0 !important;
@@ -372,4 +373,26 @@ p > code[class*="language-"] {
 	}
 }
 
+details {
+	margin: 1rem 2rem;
+}
+details[open] {
+	padding-bottom: 0.5em;
+	border-bottom: solid 3px var(--darkred);
+}
 
+details summary {
+	font-weight: 700;
+	margin-bottom: 0.25em;
+	cursor: pointer;
+	color: var(--darkred);
+}
+details[open] summary {
+	position: relative;
+	margin-bottom: 0.5em;
+	border-bottom: solid 3px var(--darkred);
+}
+
+details > pre[class*="language-"] {
+	margin: 0;
+}

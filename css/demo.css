@@ -44,3 +44,6 @@ header h1 span {
 #ExampleStack .panel-toggle button {
 	font-weight: 600;
 }
+#ExampleStack .panel-toggle button .toggle-text {
+	font-size: 1.5rem;
+}

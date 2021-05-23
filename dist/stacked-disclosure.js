@@ -3,7 +3,10 @@
 	Use a mutation observer to close them all (by setting attributes) if
 	mutation observers are available
 */
-const StackedDisclosure = { observer: undefined };
+const StackedDisclosure = { 
+	observer: undefined, 
+	ALL_MESSAGE: 'All panels under *NAME* *ACTION*'
+};
 if('MutationObserver' in window) {
 	// Create the observer that looks for added button.toggle elements
 	StackedDisclosure.observer = new MutationObserver(function(mutationsList, observer) {
@@ -11,7 +14,14 @@ if('MutationObserver' in window) {
 		for(const mutation of mutationsList) {
 			if (mutation.type === 'childList') {
 				for(e of mutation.addedNodes) {
-					if(e.nodeName == 'BUTTON' && e.classList.contains('toggle')) {
+					// rule out until you know it's a stack disclosure button
+					if(e.nodeName !== 'BUTTON')
+						continue;
+					if(!e.classList.contains('toggle'))
+						continue;
+					if(e.parentElement.hasAttribute('data-disclosure-expanded'))
+					{
+						// it's what we need!
 						e.setAttribute('aria-expanded','false');
 						e.parentElement.setAttribute('data-disclosure-expanded','false');
 					}
@@ -45,7 +55,7 @@ window.addEventListener('load', function(event) {
 	// for each stacked disclosure on the page (in case there are multiples
 	for(stack of stacks) {
 		// add aria-expanded and data-disclosure-expanded click event to toggles in this stack
-		let stack_name = stack.querySelector('.stack-name');
+		let stack_name = stack.querySelector('.stack-name').innerText.trim();
 		let toggles = stack.querySelectorAll('button.toggle');
 		for(tog of toggles) {
 			tog.addEventListener('click', function(evt) {
@@ -53,7 +63,6 @@ window.addEventListener('load', function(event) {
 				if(evt.target.getAttribute('aria-expanded') == 'false') {
 					evt.target.setAttribute('aria-expanded', 'true');
 					evt.target.parentElement.setAttribute('data-disclosure-expanded', 'true');
-
 				}
 				// close panel
 				else {
@@ -68,6 +77,11 @@ window.addEventListener('load', function(event) {
 			for(tog of stack.querySelectorAll('button.toggle')) {
 				tog.setAttribute('aria-expanded', 'true');
 				tog.parentElement.setAttribute('data-disclosure-expanded', 'true');
+				if( typeof(ScreenReaderMessenger) !== 'undefined' ) {
+					let msg = StackedDisclosure.ALL_MESSAGE;
+					msg = msg.replace('*ACTION*', 'opened').replace('*NAME*', stack_name);
+					ScreenReaderMessenger.getMessenger().say(msg);
+				}
 			}
 		});
 		
@@ -76,6 +90,11 @@ window.addEventListener('load', function(event) {
 			for(tog of stack.querySelectorAll('button.toggle')) {
 				tog.setAttribute('aria-expanded', 'false');
 				tog.parentElement.setAttribute('data-disclosure-expanded', 'false');
+				if( typeof(ScreenReaderMessenger) !== 'undefined' ) {
+					let msg = StackedDisclosure.ALL_MESSAGE;
+					msg = msg.replace('*ACTION*', 'closed').replace('*NAME*', stack_name);
+					ScreenReaderMessenger.getMessenger().say(msg);
+				}
 			}
 		});
 	}
