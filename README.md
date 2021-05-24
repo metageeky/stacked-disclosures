@@ -1,7 +1,11 @@
 # Stacked Disclosures Widget
-The [accordion widget pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) consists of a set of associated disclosure panels. Each panel can be opened or closed individually with the purpose of reducing the need to scroll through multiple sections on a page. Commonly, the accordion will typically limit it to only ONE panel open at a time. If a panel is open and the user opens another one, the other closes. This comes off as a potential antipattern in that the accordion can prevent the user from comparing the content in different panels. The accordion pattern works if the panel contents are truly independent of each other. That is rarely the case.
+The stacked disclosure is a variant of the [accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) designed to meet specific design requirements:
 
-This pattern presents a similar approach to the accordion pattern but permits multiple patterns to be open at any time. Additional features include controls to open all and close all the panels.
+* Each accordion can have any number of disclosure panels opened or closed at any time independent of each other.
+* The accordion has options to open or close all the panels at once.
+* The overall accordion conforms and possibly exceeds accessibility standards.
 
+Implementation details can be found on the [demo page](https://metageeky.github.io/stacked-disclosures/).
 
-Why not use the details/summary element?
+## License
+This code is released under the [Mozilla Public License Version 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
