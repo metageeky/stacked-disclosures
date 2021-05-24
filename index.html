@@ -90,15 +90,15 @@
 			can be opened or closed individually with the purpose of reducing the need to 
 			scroll through multiple sections on a page. Commonly, the accordion will 
 			typically limit it to only ONE panel open at a time. If a panel is open and 
-			the user opens anothe, the formerly open one closes. This comes off as a potential 
+			the user opens another, the formerly open one closes. This comes off as a potential 
 			antipattern in that the accordion can prevent the user from comparing the content 
 			in different panels. The approach to accordions works if the panel contents are truly 
 			independent of each other. That is rarely the case.
 		</p>
 		<p>
 			While some <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html">
-			accordion code examples</a> include configuation to control how many panels can be
-			open at a time, the accordion variation presented here is expllicitly restricted. 
+			accordion code examples</a> include configuration to control how many panels can be
+			open at a time, the accordion variation presented here is explicitly restricted. 
 			The <strong>stacked disclosure pattern</strong> explicitly prevents this antipattern by
 			allowing any number of panels to be open (or closed at a time). Additionally, to support
 			managing the panels, the stacked disclosure requires buttons to open or close all the 
@@ -106,7 +106,7 @@
 		</p>
 		<p>
 			This JavaScript library and supporting information are an 
-			<a href="https://github.com/metageeky/screen-reader-messaging">open 
+			<a href="https://github.com/metageeky/stacked-disclosures">open 
 			source project</a> on GitHub released under the 
 			<a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License 
 			Version 2.0</a>.
@@ -117,17 +117,17 @@
 		<section aria-labelledby="Example">
 			<div class="header-anchor">
 				<h2 id="Example">
-					Example Stacked Accordion
+					Example Stacked Disclosure
 				</h2>
 				<a href="#Example">
 					<svg><use xlink:href="#icon-link"></use></svg>
-					<span>Example Stamped Accordion Link</span>
+					<span>Example Stacked Disclosure Link</span>
 				</a>
 			</div>
 			
 			<p>
 				The example below, <a href="#ExampleStack">Cat Coat Patterns</a>, 
-				showcases the basic features of the stacked diclosure in
+				showcases the basic features of the stacked disclosure in
 				action. At the top of the widget is an <code>&lt;H3&gt;</code>
 				that names the entire widget. To the right of this heading
 				are the Open All and Close All button that show a tooltip 
@@ -145,18 +145,18 @@
 					</h3>
 					<button class="open-all">
 						<span>Open All</span>
-						<svg><use xlink:href="#icon-open-all"></use></svg>
+						<svg focusable="false"><use xlink:href="#icon-open-all"></use></svg>
 					</button>
 					<button class="close-all">
 						<span>Close All</span>
-						<svg><use xlink:href="#icon-close-all"></use></svg>
+						<svg focusable="false"><use xlink:href="#icon-close-all"></use></svg>
 					</button>
 				</div>
 
 				<h4 class="panel-toggle" data-disclosure-expanded="true">
 					<button class="toggle" aria-expanded="true">
-						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+						<svg focusable="false" class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg focusable="false" class="minus"><use xlink:href="#icon-minus"></use></svg>
 						<div class="toggle-text">
 							Tuxedo Cats
 						</div>
@@ -177,8 +177,8 @@
 
 				<h4 class="panel-toggle" data-disclosure-expanded="true">
 					<button class="toggle" aria-expanded="true">
-						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>					
+						<svg focusable="false" class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg focusable="false" class="minus"><use xlink:href="#icon-minus"></use></svg>					
 						<div class="toggle-text">
 							Calico Cats
 						</div>
@@ -197,8 +197,8 @@
 
 				<h4 class="panel-toggle" data-disclosure-expanded="true">
 					<button class="toggle" aria-expanded="true">
-						<svg class="plus"><use xlink:href="#icon-plus"></use></svg>
-						<svg class="minus"><use xlink:href="#icon-minus"></use></svg>
+						<svg focusable="false" class="plus"><use xlink:href="#icon-plus"></use></svg>
+						<svg focusable="false" class="minus"><use xlink:href="#icon-minus"></use></svg>
 						<div class="toggle-text">
 							White Cats
 						</div>
@@ -240,18 +240,18 @@
 		&lt;h3 class="stack-name" id="ID-STACK-NAME"> ... &lt;/h3&gt;
 		&lt;button class="open-all"&gt;
 			&lt;span&gt;Open All&lt;/span&gt;
-			&lt;svg&gt;&lt;use xlink:href="#icon-open-all"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;svg focusable="false"&gt;&lt;use xlink:href="#icon-open-all"&gt;&lt;/use&gt;&lt;/svg&gt;
 		&lt;/button&gt;
 		&lt;button class="close-all"&gt;
 			&lt;span&gt;Close All&lt;/span&gt;
-			&lt;svg&gt;&lt;use xlink:href="#icon-close-all"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;svg focusable="false"&gt;&lt;use xlink:href="#icon-close-all"&gt;&lt;/use&gt;&lt;/svg&gt;
 		&lt;/button&gt;
 	&lt;/div&gt; &lt;!-- end stack top --&gt;
 	
 	&lt;h4 class="panel-toggle" data-disclosure-expanded="true / false"&gt;
 		&lt;button class="toggle" aria-expanded="true / false"&gt;
-			&lt;svg class="plus"&gt;&lt;use xlink:href="#icon-plus"&gt;&lt;/use&gt;&lt;/svg&gt;
-			&lt;svg class="minus"&gt;&lt;use xlink:href="#icon-minus"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;svg focusable="false" class="plus"&gt;&lt;use xlink:href="#icon-plus"&gt;&lt;/use&gt;&lt;/svg&gt;
+			&lt;svg focusable="false" class="minus"&gt;&lt;use xlink:href="#icon-minus"&gt;&lt;/use&gt;&lt;/svg&gt;
 			&lt;div class="toggle-text"&gt; ... &lt;/div&gt;
 		&lt;/button&gt;
 	&lt;/h4&gt; &lt;!-- end panel toggle --&gt;
@@ -330,7 +330,7 @@
 				</a>
 			</div>
 			<p>
-				Two configuration options are included with the stacked-disclosures. The 
+				Two configuration options are included with the stacked disclosures. The 
 				first is the optional display of tooltips on the open all and close all
 				buttons. One can turn on the tooltips by including the <code>tooltip</code>
 				class on the stacked disclosure outer element:
@@ -439,12 +439,12 @@
 				<li>
 					The stacked disclosure is expected to use properly nested heading
 					elements for the <code class="language-html">.stack-name</code> and
-					the <code class="language-html">.panel-toggle</code> elements in 
-					order to make clear the overall structure of the disclosures.
+					the <code class="language-html">.panel-toggle</code> elements 
+					to make clear the overall structure of the disclosures.
 				</li>
 				<li>
 					<p>
-						The overall stacked disclosure is markes as being a
+						The overall stacked disclosure is marked as being a
 						<code class="language-html">role="region"</code> landmark. It
 						is also named via <code class="language-html">aria-labelledby</code>
 						assigned to the <code class="language-html">.stack-name</code>.
@@ -469,7 +469,7 @@
 					For progressive enhancement purposes, the disclosure panels are
 					set to open by default. If JavaScript is available, the panels
 					are closed on page load. If mutation observers are available, the
-					panels are closed as they are added to the DOM in order to prevent 
+					panels are closed as they are added to the DOM to prevent 
 					page flashing.
 				</li>
 			</ul>
